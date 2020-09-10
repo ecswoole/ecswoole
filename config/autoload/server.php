@@ -29,10 +29,16 @@ return [
         'max_request' => 100000,
         'socket_buffer_size' => 2 * 1024 * 1024,
         'buffer_output_size' => 2 * 1024 * 1024,
+        'document_root' => BASE_PATH . '/public',
+        'enable_static_handler' => true,
+        'task_worker_num' => swoole_cpu_num(),
+        'task_enable_coroutine' => false,
     ],
     'callbacks' => [
         SwooleEvent::ON_WORKER_START => [Hyperf\Framework\Bootstrap\WorkerStartCallback::class, 'onWorkerStart'],
         SwooleEvent::ON_PIPE_MESSAGE => [Hyperf\Framework\Bootstrap\PipeMessageCallback::class, 'onPipeMessage'],
         SwooleEvent::ON_WORKER_EXIT => [Hyperf\Framework\Bootstrap\WorkerExitCallback::class, 'onWorkerExit'],
+        SwooleEvent::ON_TASK => [Hyperf\Framework\Bootstrap\TaskCallback::class, 'onTask'],
+        SwooleEvent::ON_FINISH => [Hyperf\Framework\Bootstrap\FinishCallback::class, 'onFinish'],
     ],
 ];
