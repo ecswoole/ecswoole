@@ -17,6 +17,7 @@
     "require": {
         "php": ">=7.2",
         "ext-swoole": ">=4.5",
+        "duncan3dc/blade": "^4.10",
         "hyperf/cache": "~2.0.0",
         "hyperf/command": "~2.0.0",
         "hyperf/config": "~2.0.0",
@@ -57,7 +58,9 @@
         "psr-4": {
             "App\\": "app/"
         },
-        "files": []
+        "files": [
+            "app/Support/helpers.php"
+        ]
     },
     "autoload-dev": {
         "psr-4": {

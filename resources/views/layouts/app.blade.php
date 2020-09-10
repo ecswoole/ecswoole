@@ -13,7 +13,7 @@
 <div class="container">
     @yield('content')
 </div>
-<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1"></script>
+<script src="//cdn.jsdelivr.net/npm/jquery@3.5.1"></script>
 <script src="//cdn.jsdelivr.net/npm/bootstrap@4.5.2"></script>
 <script src="//cdn.jsdelivr.net/npm/vue@2.6.12"></script>
 </body>
