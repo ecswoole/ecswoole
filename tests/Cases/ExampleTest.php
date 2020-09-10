@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace HyperfTest\Cases;
+namespace Tests\Cases;
 
-use HyperfTest\HttpTestCase;
+use Tests\HttpTestCase;
 
 /**
  * @internal

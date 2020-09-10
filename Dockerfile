@@ -1,7 +1,8 @@
 # Default Dockerfile
+# exp：docker build -t ecswoole:ecswoole .
 
 FROM hyperf/hyperf:7.4-alpine-v3.11-cli
-LABEL maintainer="Hyperf Developers <group@hyperf.io>" version="1.0" license="MIT" app.name="Hyperf"
+LABEL maintainer="wanganlin <inbox@wanganlin.com>" version="1.0" license="Apache-2.0" app.name="ECSwoole"
 
 ##
 # ---------- env settings ----------
@@ -10,7 +11,6 @@ LABEL maintainer="Hyperf Developers <group@hyperf.io>" version="1.0" license="MI
 ARG timezone
 
 ENV TIMEZONE=${timezone:-"Asia/Shanghai"} \
-    COMPOSER_VERSION=1.10.10 \
     APP_ENV=prod \
     SCAN_CACHEABLE=(true)
 
@@ -18,9 +18,10 @@ ENV TIMEZONE=${timezone:-"Asia/Shanghai"} \
 RUN set -ex \
     # install composer
     && cd /tmp \
-    && wget https://github.com/composer/composer/releases/download/${COMPOSER_VERSION}/composer.phar \
+    && wget https://mirrors.aliyun.com/composer/composer.phar \
     && chmod u+x composer.phar \
     && mv composer.phar /usr/local/bin/composer \
+    && composer config -g repo.packagist composer https://mirrors.aliyun.com/composer/ \
     # show php version and extensions
     && php -v \
     && php -m \

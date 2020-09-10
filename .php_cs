@@ -1,7 +1,6 @@
 <?php
 
 $header = <<<'EOF'
-
 EOF;
 
 return PhpCsFixer\Config::create()
