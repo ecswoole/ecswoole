@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+    <meta charset="utf-8">
+    <meta name="csrf-token" content="{{ $csrf_token }}">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge, chrome=1">
+    <title>Welcome</title>
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container">
+    @yield('content')
+</div>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1"></script>
+<script src="//cdn.jsdelivr.net/npm/bootstrap@4.5.2"></script>
+<script src="//cdn.jsdelivr.net/npm/vue@2.6.12"></script>
+</body>
+</html>
