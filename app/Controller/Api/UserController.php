@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Controller\Console;
+namespace App\Controller\Api;
 
 use App\Controller\AbstractController;
 use Hyperf\Contract\TranslatorInterface;
@@ -12,17 +12,17 @@ use Hyperf\HttpServer\Annotation\GetMapping;
 
 /**
  * @Controller
- * Class IndexController
- * @package App\Controller\Console
+ * Class UserController
+ * @package App\Controller\Api
  */
-class IndexController extends AbstractController
+class UserController extends AbstractController
 {
     /**
-     * @GetMapping("/console")
+     * @GetMapping("/api/user")
      * @return mixed
      */
     public function index()
     {
-        return 'console api';
+        return 'user api server';
     }
 }
