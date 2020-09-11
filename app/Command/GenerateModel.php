@@ -26,13 +26,13 @@ class GenerateModel extends BaseCommand
     {
         $this->container = $container;
 
-        parent::__construct('gen:model:all');
+        parent::__construct('gen:model');
     }
 
     public function configure()
     {
         parent::configure();
-        $this->setDescription('Generate Model Command');
+        $this->setDescription('Generate all model');
     }
 
     public function handle()
@@ -49,7 +49,7 @@ class GenerateModel extends BaseCommand
             file_put_contents(BASE_PATH . '/app/Model/' . $class . '.php', $model);
         }
 
-        $models = glob(BASE_PATH . '/app/Module/Model/*.php');
+        $models = glob(BASE_PATH . '/app/Module/*/Model/*.php');
         foreach ($models as $model) {
             $target = BASE_PATH . '/app/Model/' . basename($model);
             if (file_exists($target)) {
