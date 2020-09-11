@@ -23,6 +23,12 @@ class IndexController extends AbstractController
      */
     public function index()
     {
-        return 'api server';
+        return $this->succeed([
+            'generator' => 'ecswoole',
+            'monitor' => [
+                'health' => 'ok',
+                'time' => time(),
+            ],
+        ]);
     }
 }

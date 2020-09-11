@@ -4,7 +4,7 @@ import defaultSettings from './defaultSettings';
 import proxy from './proxy';
 const { REACT_APP_ENV } = process.env;
 export default defineConfig({
-  hash: true,
+  hash: false,
   antd: {},
   dva: {
     hmr: true,
@@ -104,5 +104,6 @@ export default defineConfig({
   },
   base: '/home/',
   outputPath: '../../../public/home',
-  // publicPath: '' // CDN静态文件地址
+  publicPath: '/home/',
+  history: {type: 'hash'},
 });

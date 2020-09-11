@@ -17,7 +17,7 @@ use Hyperf\HttpServer\Annotation\PostMapping;
 class AuthController extends AbstractController
 {
     /**
-     * @PostMapping("/api/login")
+     * @PostMapping("/api/auth/login")
      * @return array
      */
     public function login()
