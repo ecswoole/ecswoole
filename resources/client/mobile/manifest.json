@@ -79,6 +79,7 @@
         "router" : {
             "mode" : "hash",
             "base" : "/mobile/"
-        }
+        },
+        // "publicPath": "", CDN资源地址前缀
     }
 }
