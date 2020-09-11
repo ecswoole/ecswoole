@@ -51,23 +51,23 @@ abstract class AbstractController
     /**
      * @var int
      */
-    protected $statusCode = 1;
+    protected $errorCode = 0;
 
     /**
      * @return int
      */
-    protected function getStatusCode(): int
+    protected function getErrorCode()
     {
-        return $this->statusCode;
+        return $this->errorCode;
     }
 
     /**
-     * @param int $statusCode
+     * @param $errorCode
      * @return $this
      */
-    protected function setStatusCode(int $statusCode)
+    protected function setErrorCode($errorCode)
     {
-        $this->statusCode = $statusCode;
+        $this->errorCode = $errorCode;
 
         return $this;
     }
@@ -103,7 +103,7 @@ abstract class AbstractController
         return $this->response([
             'status' => 'failed',
             'errors' => [
-                'code' => $this->getStatusCode(),
+                'code' => $this->getErrorCode(),
                 'message' => $message,
             ],
         ]);
@@ -112,18 +112,18 @@ abstract class AbstractController
     /**
      * 返回 Json 数据格式
      * @param $data
+     * @param string $name
      * @return PsrResponseInterface
      */
-    protected function response($data)
+    protected function response($data, $name = 'X-Client-Id')
     {
-        $name = 'X-Client-Id';
-        $client_id = $this->request->header($name);
+        $clientId = $this->request->getHeader($name);
 
-        if (empty($client_id)) {
-            $client_id = $this->session->getId();
+        if (empty($clientId)) {
+            $clientId = $this->session->getId();
         }
 
-        return $this->response->json($data)->withHeader($name, $client_id);
+        return $this->response->json($data)->withHeader($name, $clientId);
     }
 
     /**
